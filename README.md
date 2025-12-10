@@ -12,10 +12,13 @@ In Bottles:
 - Architecture: 64-bit
 - Windows version: Windows 10 / 11
 
-<div style="position: relative; width: fit-content;">
+<div style="position: relative; display:inline-block;">
   <img src="images/bottles.png" alt="bottles" style="display:block;">
-  <img src="images/bottles2.png" alt="bottles2" style="position:absolute; top:90px; left:300px;">
+  <div style="position:absolute; top:90px; left:300px;">
+    <img src="images/bottles2.png" alt="bottles2" style="display:block;">
+  </div>
 </div>
+
 <br>
 <br>
 <br>
