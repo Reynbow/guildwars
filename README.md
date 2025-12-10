@@ -1,20 +1,10 @@
 # Daybreak Launcher on Linux (Bottles) – Working Installation Guide
 
-## Problem
-
-Daybreak requires Microsoft WebView2 Runtime.
-
-Under Bottles, the WebView2 installer usually fails silently, causing:
-
-- Blank white window
-- No UI elements
-- Launcher unusable
-
-## Solution
-
-Manually inject the WebView2 runtime and register it in the prefix so Daybreak can detect it.
-
 ### 1. Create a clean bottle for Daybreak
+
+Install bottles via: https://usebottles.com/
+
+It should be available in your package manager for easier install.
 
 In Bottles:
 
@@ -22,7 +12,39 @@ In Bottles:
 - Architecture: 64-bit
 - Windows version: Windows 10 / 11
 
+<div style="position: relative; width: fit-content;">
+  <img src="images/bottles.png" alt="bottles" style="display:block;">
+  <img src="images/bottles2.png" alt="bottles2" style="position:absolute; top:90px; left:300px;">
+</div>
+<br>
+<br>
+<br>
+<br>
+
 ### 2. Place Daybreak in the bottle
+
+Once created, open the Guild Wars bottle and click on the Browse C:/ drive button:
+
+![bottles](images/bottles3.png)
+
+Create a new folder and name it "daybreak"
+
+<img src="images/bottles4.png"
+     alt="bottles"
+     style="border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 10px rgba(0,0,0,0.12); border-radius: 6px;">
+
+Download Daybreak from the official github: https://github.com/gwdevhub/Daybreak/releases
+
+Open the downloaded .zip file and extract all the contents in to the daybreak folder you created above.
+
+<div style="position: relative; width: fit-content;">
+  <img src="images/bottles5.png" alt="bottles5" style="display:block;">
+  <img src="images/bottles6.png" alt="bottles6" style="position:absolute; top:190px; left:500px;">
+</div>
+<br>
+<br>
+<br>
+<br>
 
 Extract Daybreak into the bottle's path:
 
