@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+; ------------ Runtime discovery (required) ------------
+[HKEY_LOCAL_MACHINE\Software\Microsoft\EdgeUpdate]
+"pv"="143.0.3650.66"
+"st"=dword:00000001
+
+; ------------ Runtime presence detection (recommended) ------------
+[HKEY_LOCAL_MACHINE\Software\Microsoft\EdgeWebView]
+"pv"="143.0.3650.66"
+
+; ------------ Rendering fix (prevents white/blank windows) ------------
+[HKEY_CURRENT_USER\Software\Microsoft\Edge\WebView\Rendering]
+"DisableGpu"=dword:00000001

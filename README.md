@@ -8,21 +8,10 @@ It should be available in your package manager for easier install.
 
 In Bottles:
 
-- Create new bottle → type: Gaming (or Custom / Application is fine)
-- Architecture: 64-bit
-- Windows version: Windows 10 / 11
+- Create new bottle → type: Gaming
 
-<div style="position: relative; display:inline-block;">
-  <img src="images/bottles.png" alt="bottles" style="display:block;">
-  <div style="position:absolute; top:90px; left:300px;">
-    <img src="images/bottles2.png" alt="bottles2" style="display:block;">
-  </div>
-</div>
 
-<br>
-<br>
-<br>
-<br>
+![bottles2](images/bottles2.png)
 
 ### 2. Place Daybreak in the bottle
 
@@ -32,45 +21,23 @@ Once created, open the Guild Wars bottle and click on the Browse C:/ drive butto
 
 Create a new folder and name it "daybreak"
 
-<div style="display:inline-block; border:1px solid rgba(255,255,255,0.1); border-radius:6px; box-shadow:0 4px 10px rgba(0,0,0,0.12);">
-  <img src="images/bottles4.png" alt="bottles" style="display:block; border-radius:6px;">
-</div>
-
-
 Download Daybreak from the official github: https://github.com/gwdevhub/Daybreak/releases
 
 Open the downloaded .zip file and extract all the contents in to the daybreak folder you created above.
 
-<div style="position: relative; width: fit-content;">
-  <img src="images/bottles5.png" alt="bottles5" style="display:block;">
-  <img src="images/bottles6.png" alt="bottles6" style="position:absolute; top:190px; left:500px;">
-</div>
-<br>
-<br>
-<br>
-<br>
 
-Extract Daybreak into the bottle's path:
 
-```
-~/.local/share/bottles/bottles/<YourBottleName>/drive_c/Daybreak/
-```
-
-**Verify:**
-
-- `Daybreak.exe` exists inside that folder.
-
-### 3. Download WebView2 Fixed Runtime
+### 3. Download WebView2 Fixed Version
 
 From [Microsoft WebView2 downloads page](https://developer.microsoft.com/en-us/microsoft-edge/webview2/):
 
 **Download:**
 
-- ✔ **Fixed Runtime – Evergreen Standalone CAB (x64)** (not the bootstrap installer)
+- ✔ **Fixed Version** (not the Bootstrapper or Standalone Installer)
 
 ### 4. Extract the CAB into the bottle
 
-Inside your bottle, create:
+Inside your bottle, create the EdgeWebView folder:
 
 ```
 drive_c/Program Files (x86)/Microsoft/EdgeWebView/
@@ -84,87 +51,54 @@ You should end up with something like:
 .../EdgeWebView/Microsoft.WebView2.FixedVersionRuntime.143.0.3650.66.x64/
 ```
 
-(The version number will differ.)
+(The version number may differ.)
 
 ### 5. Register WebView2 in the bottle's Wine registry
 
-Inside Bottles:
+First, [download the WebView2 registry file here.](installer/webview2.reg)
+
+Then inside Bottles, click the Browse button and save the webview2.reg file to this path, in the "drive_c" folder.
+
+![bottles](images/bottles3.png)
+
+Next, open the registry editor in Bottles.
 
 **Bottle → Tools → Registry Editor (regedit)**
 
-#### Create detection key #1
+![bottles](images/bottles8.png)
 
-Navigate:
 
-```
-HKEY_LOCAL_MACHINE
- └ Software
-   └ Microsoft
-```
+Click on the Registry menu and `Import Registry File...`
 
-Right-click `Microsoft` → New → Key:
+![bottles](images/bottles10.png)
 
-- `EdgeUpdate`
+Choose the webview2.reg file that you downloaded earlier.
 
-Click `EdgeUpdate`:
 
-- Right pane → New → String Value:
-  - `pv` = `143.0.3650.66` (use the version number from your folder)
-- Right pane → New → DWORD (32-bit Value):
-  - `st` = `1`
+![bottles](images/bottles11.png)
 
-#### Create detection key #2
+After the import completes, close the registry.
 
-Back under:
 
-```
-HKEY_LOCAL_MACHINE\Software\Microsoft
-```
 
-Right-click → New → Key:
+### 6. Install dependencies
 
-- `EdgeWebView`
+1. Open the `Dependencies` on the options category
 
-Right pane → New → String Value:
+![bottles](images/bottles12.png)
 
-- `pv` = `143.0.3650.66`
+2. Install the below dependencies by clicking on the name in the list:
+    - `dotnetcoredesktop9`
+    - `vcredist2015`
+    - `vcredist2022`
 
-### 6. Fix rendering failure (prevents white window)
+![bottles](images/bottles13.png)
 
-Still in regedit, navigate:
-
-```
-HKEY_CURRENT_USER
- └ Software
-   └ Microsoft
-```
-
-Right-click `Microsoft` → New → Key:
-
-- `Edge`
-
-Inside:
-
-- Right-click → New → Key:
-  - `WebView`
-
-Inside:
-
-- Right-click → New → Key:
-  - `Rendering`
-
-Select `Rendering` and add:
-
-| Name | Type | Value |
-|------|------|-------|
-| `DisableGpu` | DWORD | `1` |
-
-This forces WebView2 to render in software mode, which works inside Wine.
 
 ### 7. Launch Daybreak inside Bottles
 
-1. Open the bottle
-2. Add `Daybreak.exe` as a program
+1. Add `Daybreak.exe` as a program via the `+ Add Shortcuts...` button
+2. The `Daybreak.exe` will be in the `drive_c/daybreak/` folder you created earlier.
 3. Launch it
 
 You should now get:
