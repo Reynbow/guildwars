@@ -32,9 +32,10 @@ Once created, open the Guild Wars bottle and click on the Browse C:/ drive butto
 
 Create a new folder and name it "daybreak"
 
-<img src="images/bottles4.png"
-     alt="bottles"
-     style="border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 10px rgba(0,0,0,0.12); border-radius: 6px;">
+<div style="display:inline-block; border:1px solid rgba(255,255,255,0.1); border-radius:6px; box-shadow:0 4px 10px rgba(0,0,0,0.12);">
+  <img src="images/bottles4.png" alt="bottles" style="display:block; border-radius:6px;">
+</div>
+
 
 Download Daybreak from the official github: https://github.com/gwdevhub/Daybreak/releases
 
