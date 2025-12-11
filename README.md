@@ -4,15 +4,7 @@
 
 This guide will help you install and configure the Daybreak launcher for Guild Wars on Linux using Faugus.
 
-**What you'll need:**
-- Faugus launcher installed
-- Guild Wars installer (`GwSetup.exe`)
-- Daybreak launcher
-- Microsoft WebView2 runtime
-
 ---
-
-## Prerequisites
 
 ### Install Faugus
 
