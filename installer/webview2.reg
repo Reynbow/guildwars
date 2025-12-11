@@ -4,6 +4,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\Software\Microsoft\EdgeUpdate]
 "pv"="143.0.3650.66"
 "st"=dword:00000001
+"doNotSandbox"=dword:00000001
 
 ; ------------ Runtime presence detection (recommended) ------------
 [HKEY_LOCAL_MACHINE\Software\Microsoft\EdgeWebView]

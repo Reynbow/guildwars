@@ -28,68 +28,71 @@ Once Faugus is open, click the `+` button in the bottom left corner.
 14. Go back to Faugus and right click your Guild Wars entry and select `Edit`
 15. Change the path be selecting the `search` button and select the `Daybreak.exe` in the folder you created. This will be under the `/home/<username>/Faugus/` path
 
-> **⚠️ IMPORTANT**
+> **⚠️ IMPORTANT - Initialize Daybreak once**
 > 
-> Launch your Guild Wars shortcut to Daybreak now. This is required before any further changes are applied.
-> 
-> It will not work yet, and will just load a white window. Once you see the white window you can close it and continue on.
+> After setting Daybreak.exe as the executable but before continuing:
+>
+> 1. Launch Daybreak once
+> 2. Wait 10 seconds (blank/white window is expected)
+> 3. Close it again
+>
+> This initializes the WebView2 host environment inside the prefix.
 
 16. Download [Microsoft WebView2 from the downloads page here](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)
- -  ensure you download the `Fixed Version`
- - this will be a .cab file
+ - Download the `Evergreen Standalone Installer (x64)`
+ - Also download thethe `Fixed Version` (this will be a .cab file)
 
-17. Extract the .cab file contents to a new folder you will need to create under 
+17. Open the Tools tab of your game in Faugus. And click the `Run` button.
+ - Select the `MicrosoftEdgeWebView2RuntimeInstallerX64.exe` that you downloaded
+ - Run the installer
+ - It will likely give an error message or just close/crash once it's finished, this is fine.
+
+18. Extract the .cab file contents to a new folder you will need to create under 
 ```
 drive_c/Program Files (x86)/Microsoft/EdgeWebView/
 ```
 ![](images/faug7.png)
 
-18. [Download this registry file](installer/webview2.reg) and place it in your `drive_c` folder
+19. [Download this registry file](installer/webview2.reg) and place it in your `drive_c` folder
  - Below is a preview of the registry file. You can ignore this if you just want to download the file and follow the guide.
 
 ```
-Windows Registry Editor Version 5.00
-
-; ------------ Runtime discovery (required) ------------
 [HKEY_LOCAL_MACHINE\Software\Microsoft\EdgeUpdate]
 "pv"="143.0.3650.66"
 "st"=dword:00000001
+"doNotSandbox"=dword:00000001
 
-; ------------ Runtime presence detection (recommended) ------------
 [HKEY_LOCAL_MACHINE\Software\Microsoft\EdgeWebView]
 "pv"="143.0.3650.66"
 
-; ------------ Rendering fix (prevents white/blank windows) ------------
 [HKEY_CURRENT_USER\Software\Microsoft\Edge\WebView\Rendering]
 "DisableGpu"=dword:00000001
 ```
 
 ![](images/faug9.png)
 
-19. Back in Faugus, switch to the `Tools` tab and click on the `Winetricks` button in the bottom right
-20. Click `Ok` with the `Select the default wineprefix` option checked
+20. Back in Faugus, switch to the `Tools` tab and click on the `Winetricks` button in the bottom right
+21. Click `Ok` with the `Select the default wineprefix` option checked
 ![](images/faug5.png)
 
-21. Select regedit and click ok
+22. Select regedit and click ok
 ![](images/faug8.png)
 
 
-22. Click on the Registry menu and select `Import Registry File...`
+23. Click on the Registry menu and select `Import Registry File...`
 
 ![bottles](images/bottles10.png)
 
-23. Choose the webview2.reg file that you downloaded earlier. After the import completes, close the registry.
-
+24. Choose the webview2.reg file that you downloaded earlier. After the import completes, close the registry.
 
 ![bottles](images/bottles11.png)
 
-
-
-
-24. After closing the registry, switch to `Install a Windows DLL or component`
-
-
+25. After closing the registry, switch to `Install a Windows DLL or component`
 
 ![](images/faug10.png)
 
-25. Select `dotnetdesktop9` in the list and click `Ok`
+26. Select `dotnetdesktop9` in the list and click `Ok`
+
+![](images/faug11.png)
+
+You should now be able to run Daybreak under Linux! 🎉
