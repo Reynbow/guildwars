@@ -84,7 +84,7 @@ Install Faugus via your package manager.
 2. Click the `Run` button
 3. Select `MicrosoftEdgeWebView2RuntimeInstallerX64.exe` that you downloaded
 4. Run the installer
-   - It may show an error or close/crash when finished — this is normal
+   - It may show an error or close/crash when finished - this is normal
 
 #### Extract Fixed Version Files
 
