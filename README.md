@@ -96,3 +96,9 @@ drive_c/Program Files (x86)/Microsoft/EdgeWebView/
 ![](images/faug11.png)
 
 You should now be able to run Daybreak under Linux! 🎉
+
+At this point you can either point Daybreak to your existing installation of Guild Wars or have Daybreak install Guild Wars for you in its Prefix. 
+
+Daybreak will then handle your Mods and GWToolbox entirely. 
+
+Mods for gMod can be found here: https://wiki.guildwars.com/wiki/Player-made_Modifications/Cartography_Index
