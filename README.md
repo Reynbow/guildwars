@@ -1,32 +1,70 @@
-# Daybreak Launcher on Linux – Working Installation Guide
+# Daybreak Launcher on Linux – Installation Guide
 
-### Faugus Launcher
+## Overview
 
-Install Faugus via your package manager.<br>
-The github can be found here: https://github.com/Faugus/faugus-launcher
+This guide will help you install and configure the Daybreak launcher for Guild Wars on Linux using Faugus.
 
-Once Faugus is open, click the `+` button in the bottom left corner.
+**What you'll need:**
+- Faugus launcher installed
+- Guild Wars installer (`GwSetup.exe`)
+- Daybreak launcher
+- Microsoft WebView2 runtime
 
-1. Enter a title
-2. The Prefix will automatically fill
-3. Add your Guild Wars installer file to the path by clicking the `search` button (`GwSetup.exe`)
-4. You can choose to add shortcuts below, with the tick boxes
-5. In the Tools tab, ensure `Game Mode` is ticked
-6. Click `Ok` to close this window
-7. The click the `Play` button or double click to run 
+---
 
+## Prerequisites
+
+### Install Faugus
+
+Install Faugus via your package manager.
+
+**GitHub:** https://github.com/Faugus/faugus-launcher
+
+---
+
+## Installation Steps
+
+### 1. Create Guild Wars Prefix in Faugus
+
+1. Open Faugus and click the `+` button in the bottom left corner
+2. Enter a title for your game
+3. The Prefix will automatically fill
+4. Add your Guild Wars installer file (`GwSetup.exe`) by clicking the `search` button
+5. Optionally add shortcuts using the tick boxes
+6. In the **Tools** tab, ensure `Game Mode` is ticked
+7. Click `Ok` to close the window
+8. Click the `Play` button or double-click to run
 
 ![](images/faug0.png)
 
-8. When you see the Guild Wars installer window, you can either let the install complete now, or close it and have the Daybreak launcher handle the install. To speed things up and ensure Daybreak is working I recommend just closing the installer now.
-9. Download the Daybreak launcher from their github here: https://github.com/gwdevhub/Daybreak/releases
-10. Right click your Guild Wars entry in Faugus and click `Open prefix location`
-11. Open the `drive_c` folder
-12. Create a folder named `Daybreak` here.
+> **Note:** When the Guild Wars installer window appears, you can either let it complete or close it now. For speed and to ensure Daybreak handles the installation, I recommend closing it at this point.
+
+---
+
+### 2. Install Daybreak Launcher
+
+1. **Download Daybreak** from: https://github.com/gwdevhub/Daybreak/releases
+
+2. **Locate your prefix:**
+   - Right-click your Guild Wars entry in Faugus
+   - Click `Open prefix location`
+   - Open the `drive_c` folder
+
+3. **Create Daybreak folder:**
+   - Create a new folder named `Daybreak` in `drive_c`
+   - Extract the Daybreak .zip contents to this folder
+
 ![](images/faug4.png)
-13. Extract the contents of the Daybreak .zip file to this new Daybreak folder
-14. Go back to Faugus and right click your Guild Wars entry and select `Edit`
-15. Change the path be selecting the `search` button and select the `Daybreak.exe` in the folder you created. This will be under the `/home/<username>/Faugus/` path
+
+4. **Update executable path:**
+   - Right-click your Guild Wars entry in Faugus
+   - Select `Edit`
+   - Click the `search` button and select `Daybreak.exe` from the Daybreak folder you created
+   - The path will be under `/home/<username>/Faugus/`
+
+---
+
+### 3. Initialize Daybreak (Required)
 
 > **⚠️ IMPORTANT - Initialize Daybreak once**
 > 
@@ -38,23 +76,43 @@ Once Faugus is open, click the `+` button in the bottom left corner.
 >
 > This initializes the WebView2 host environment inside the prefix.
 
-16. Download [Microsoft WebView2 from the downloads page here](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)
- - Download the `Evergreen Standalone Installer (x64)`
- - Also download thethe `Fixed Version` (this will be a .cab file)
+---
 
-17. Open the Tools tab of your game in Faugus. And click the `Run` button.
- - Select the `MicrosoftEdgeWebView2RuntimeInstallerX64.exe` that you downloaded
- - Run the installer
- - It will likely give an error message or just close/crash once it's finished, this is fine.
+### 4. Install Microsoft WebView2 Runtime
 
-18. Extract the .cab file contents to a new folder you will need to create under 
-```
-drive_c/Program Files (x86)/Microsoft/EdgeWebView/
-```
+#### Download WebView2
+
+1. Go to: https://developer.microsoft.com/en-us/microsoft-edge/webview2/
+2. Download the **Evergreen Standalone Installer (x64)**
+3. Also download the **Fixed Version** (this will be a .cab file)
+
+#### Run the Installer
+
+1. In Faugus, open the **Tools** tab for your game
+2. Click the `Run` button
+3. Select `MicrosoftEdgeWebView2RuntimeInstallerX64.exe` that you downloaded
+4. Run the installer
+   - It may show an error or close/crash when finished — this is normal
+
+#### Extract Fixed Version Files
+
+1. Extract the .cab file contents to a new folder:
+   ```
+   drive_c/Program Files (x86)/Microsoft/EdgeWebView/
+   ```
+
 ![](images/faug7.png)
 
-19. [Download this registry file](installer/webview2.reg) and place it in your `drive_c` folder
- - Below is a preview of the registry file. You can ignore this if you just want to download the file and follow the guide.
+---
+
+### 5. Configure Registry
+
+#### Download Registry File
+
+1. [Download the registry file](installer/webview2.reg) and place it in your `drive_c` folder
+
+<details>
+<summary>Registry file preview (click to expand)</summary>
 
 ```
 [HKEY_LOCAL_MACHINE\Software\Microsoft\EdgeUpdate]
@@ -69,36 +127,54 @@ drive_c/Program Files (x86)/Microsoft/EdgeWebView/
 "DisableGpu"=dword:00000001
 ```
 
+</details>
+
 ![](images/faug9.png)
 
-20. Back in Faugus, switch to the `Tools` tab and click on the `Winetricks` button in the bottom right
-21. Click `Ok` with the `Select the default wineprefix` option checked
+#### Import Registry File
+
+1. In Faugus, open the **Tools** tab
+2. Click the `Winetricks` button in the bottom right
+3. Click `Ok` with `Select the default wineprefix` checked
+
 ![](images/faug5.png)
 
-22. Select regedit and click ok
+4. Select `regedit` and click `Ok`
+
 ![](images/faug8.png)
 
-
-23. Click on the Registry menu and select `Import Registry File...`
+5. Click **Registry** → **Import Registry File...**
 
 ![bottles](images/bottles10.png)
 
-24. Choose the webview2.reg file that you downloaded earlier. After the import completes, close the registry.
+6. Choose the `webview2.reg` file you downloaded earlier
+7. After import completes, close the registry
 
 ![bottles](images/bottles11.png)
 
-25. After closing the registry, switch to `Install a Windows DLL or component`
+---
+
+### 6. Install .NET Desktop Runtime
+
+1. In Winetricks, select `Install a Windows DLL or component`
 
 ![](images/faug10.png)
 
-26. Select `dotnetdesktop9` in the list and click `Ok`
+2. Select `dotnetdesktop9` from the list and click `Ok`
 
 ![](images/faug11.png)
 
-You should now be able to run Daybreak under Linux! 🎉
+---
 
-At this point you can either point Daybreak to your existing installation of Guild Wars or have Daybreak install Guild Wars for you in its Prefix. 
+## You're Done! 🎉
 
-Daybreak will then handle your Mods and GWToolbox entirely. 
+Daybreak should now work under Linux!
 
-Mods for gMod can be found here: https://wiki.guildwars.com/wiki/Player-made_Modifications/Cartography_Index
+### Next Steps
+
+- Point Daybreak to your existing Guild Wars installation, or
+- Have Daybreak install Guild Wars for you in its prefix
+
+Daybreak will handle your mods and GWToolbox entirely.
+
+**Mods for gMod:** https://wiki.guildwars.com/wiki/Player-made_Modifications/Cartography_Index
