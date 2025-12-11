@@ -28,15 +28,11 @@ Once Faugus is open, click the `+` button in the bottom left corner.
 14. Go back to Faugus and right click your Guild Wars entry and select `Edit`
 15. Change the path be selecting the `search` button and select the `Daybreak.exe` in the folder you created. This will be under the `/home/<username>/Faugus/` path
 
-<div style="background-color: #ffebee; border-left: 4px solid #d32f2f; padding: 12px; margin: 16px 0; border-radius: 4px;">
-
-**⚠️ IMPORTANT**
-
-Launch your Guild Wars shortcut to Daybreak now. This is required before any further changes are applied.
-
-It will not work yet, and will just load a white window. Once you see the white window you can close it and continue on.
-
-</div>
+> **⚠️ IMPORTANT**
+> 
+> Launch your Guild Wars shortcut to Daybreak now. This is required before any further changes are applied.
+> 
+> It will not work yet, and will just load a white window. Once you see the white window you can close it and continue on.
 
 16. Download [Microsoft WebView2 from the downloads page here](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)
  -  ensure you download the `Fixed Version`
